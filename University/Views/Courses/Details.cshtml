@@ -1,0 +1,45 @@
+@{
+  Layout = "_Layout";
+}
+
+@model University.Models.Course;
+@using University.Models;
+@using System.Collections.Generic;
+
+<h2>Course Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.CourseName): @Html.DisplayFor(model => model.CourseName)</h3>
+
+@if(@Model.Students.Count == 0)
+{
+  <p>This course does not contain any students</p>
+}
+else
+{
+  <h4>Students enrolled in this course are:</h4>
+  <ul>
+  @foreach(Student student in Model.Students)
+  {
+    string departments = "";
+    @if(student.JoinEntities.Count == 0)
+    {
+      departments = "This student is not enrolled in any department.";
+    }
+    else
+    {
+      List<string> deptmentList = new List<string>();
+      @foreach(CourseStudent join in student.JoinEntities)
+      {
+        departmentList.Add(join.Tag.Title);
+      }
+      tags = String.Join(", ", tagList);
+    }
+    <li>@item.Description | Tags: @tags</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to categories", "Index")</p>
+<p>@Html.ActionLink("Edit Category", "Edit", new { id = Model.CategoryId })</p>
+<p>@Html.ActionLink("Delete Category", "Delete", new { id = Model.CategoryId })</p>
+<p>@Html.ActionLink("Add new item", "Create", "Items")</p>
