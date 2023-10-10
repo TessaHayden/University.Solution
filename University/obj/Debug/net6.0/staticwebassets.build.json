@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "wR3LmYb7sFzy+McmPZvVtj3Wll8gd+VhCmtJqd8xB44=",
+  "Source": "University",
+  "BasePath": "_content/University",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "University/wwwroot",
+      "Source": "University",
+      "ContentRoot": "/Users/tessahayden/Desktop/Epicodus/University.Solution/University/wwwroot/",
+      "BasePath": "_content/University",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
